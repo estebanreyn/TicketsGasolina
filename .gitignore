@@ -4,4 +4,4 @@ data/*.tmp
 .env
 npm-debug.log*
 coverage/
-
+.vercel/

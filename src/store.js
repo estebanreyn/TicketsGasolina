@@ -1,10 +1,14 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import crypto from "node:crypto";
+import os from "node:os";
 import { hashPassword } from "./security.js";
 
 const DATA_DIR = path.resolve("data");
-const DATA_FILE = process.env.DATA_FILE ? path.resolve(process.env.DATA_FILE) : path.join(DATA_DIR, "app.json");
+const DEFAULT_DATA_FILE = process.env.VERCEL
+  ? path.join(os.tmpdir(), "tickets-gasolina-app.json")
+  : path.join(DATA_DIR, "app.json");
+const DATA_FILE = process.env.DATA_FILE ? path.resolve(process.env.DATA_FILE) : DEFAULT_DATA_FILE;
 let queue = Promise.resolve();
 
 const now = () => new Date().toISOString();

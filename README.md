@@ -14,6 +14,12 @@ npm start
 
 Abrir `http://localhost:3000`.
 
+## Desplegar en Vercel
+
+El repositorio incluye una función serverless catch-all en `api/[...path].js` y configuración en `vercel.json`. Al importar el repositorio en Vercel no se debe definir manualmente un framework ni cambiar el directorio raíz.
+
+Configurar en Vercel la variable `APP_SECRET` con un valor largo y aleatorio. Para esta demostración, Vercel guarda los datos en `/tmp`; pueden reiniciarse al cambiar o suspender la instancia. Antes de producción se debe conectar PostgreSQL o SQL Server.
+
 Para desarrollo con recarga automática:
 
 ```powershell

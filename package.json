@@ -5,6 +5,7 @@
   "description": "Gestion integral de tickets digitales e inventario de combustible",
   "type": "module",
   "scripts": {
+    "build": "node --check src/server.js && node --check public/app.js",
     "dev": "node --env-file-if-exists=.env --watch src/server.js",
     "start": "node --env-file-if-exists=.env src/server.js",
     "test": "node --test --test-isolation=none",

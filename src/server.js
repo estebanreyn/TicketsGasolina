@@ -452,4 +452,8 @@ app.patch("/api/settings", permit("*"), async (req, res) => res.json(await trans
 app.use("/api", (_req, res) => fail(res, 404, "Ruta no encontrada"));
 app.use((_error, _req, res, _next) => fail(res, 500, "Ocurrio un error interno"));
 
-app.listen(port, () => console.log(`TicketsGasolina disponible en ${baseUrl}`));
+if (!process.env.VERCEL) {
+  app.listen(port, () => console.log(`TicketsGasolina disponible en ${baseUrl}`));
+}
+
+export default app;
