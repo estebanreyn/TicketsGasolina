@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#143d2b">
+  <meta name="description" content="Gestion de tickets digitales e inventario de combustible">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/styles.css">
+  <title>TicketsGasolina</title>
+</head>
+<body>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <main id="login-screen" class="login-screen">
+    <section class="login-brand">
+      <div class="brand-mark" aria-hidden="true"><span></span></div>
+      <p class="eyebrow">INTEC · OPERACIONES</p>
+      <h1>Combustible bajo control.</h1>
+      <p>Tickets seguros, inventario verificable y cada despacho con trazabilidad.</p>
+      <div class="login-metrics">
+        <span><strong>24/7</strong> operación</span>
+        <span><strong>1 uso</strong> por QR</span>
+        <span><strong>100%</strong> auditable</span>
+      </div>
+    </section>
+    <section class="login-panel">
+      <form id="login-form" class="login-form">
+        <div>
+          <p class="eyebrow">ACCESO SEGURO</p>
+          <h2>Iniciar sesión</h2>
+          <p class="muted">Ingresa con tu cuenta institucional.</p>
+        </div>
+        <label>Correo electrónico<input name="email" type="email" value="admin@intec.edu.do" autocomplete="username" required></label>
+        <label>Contraseña<input name="password" type="password" value="Admin123!" autocomplete="current-password" required></label>
+        <button class="button primary wide" type="submit">Entrar al sistema <span>→</span></button>
+        <details>
+          <summary>Usuarios de demostración</summary>
+          <small>Admin: admin@intec.edu.do / Admin123!<br>Supervisor: supervisor@intec.edu.do / Supervisor123!<br>Despachador: despachador@intec.edu.do / Despachador123!</small>
+        </details>
+      </form>
+    </section>
+  </main>
+
+  <div id="app-shell" class="app-shell hidden">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark small"><span></span></div><div><strong>Tickets</strong><small>Gasolina</small></div></div>
+      <nav id="nav"></nav>
+      <div class="sidebar-foot"><div class="avatar" id="avatar">TG</div><div class="user-mini"><strong id="user-name"></strong><small id="user-role"></small></div><button id="logout" class="icon-button" title="Cerrar sesión">↪</button></div>
+    </aside>
+    <header class="mobile-header"><button id="menu-toggle" class="icon-button" aria-label="Abrir menú">☰</button><div class="brand compact"><div class="brand-mark small"><span></span></div><strong>TicketsGasolina</strong></div><button id="mobile-logout" class="icon-button" aria-label="Cerrar sesión">↪</button></header>
+    <section class="workspace">
+      <header class="topbar"><div><p class="eyebrow" id="breadcrumb">OPERACIONES</p><h1 id="page-title">Resumen</h1></div><div class="top-actions"><span class="live-dot">En línea</span><button id="notifications-button" class="icon-button notification-button" title="Notificaciones">●<span id="notification-count">0</span></button></div></header>
+      <div id="content" class="content"></div>
+    </section>
+  </div>
+
+  <dialog id="modal"><div class="modal-head"><div><p class="eyebrow" id="modal-kicker">NUEVO REGISTRO</p><h2 id="modal-title"></h2></div><button class="icon-button" data-close aria-label="Cerrar">×</button></div><form id="modal-form" class="form-grid"></form></dialog>
+  <dialog id="qr-modal"><div class="modal-head"><div><p class="eyebrow">TICKET DIGITAL</p><h2 id="qr-title">Código QR</h2></div><button class="icon-button" data-close aria-label="Cerrar">×</button></div><div id="qr-content" class="qr-content"></div></dialog>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
